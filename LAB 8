@@ -39,6 +39,18 @@ def remove_student(student_id):
         del students_dict[student_id]
         print(f"Student with ID {student_id} removed.")
 
+# -------------------- Головенко Марк --------------------
+
+def update_student(student_id, name=None, age=None, course=None):
+    """Updates the student's information if they exist"""
+    if check_student_exists(student_id):
+        if name:
+            students_dict[student_id]['name'] = name
+        if age:
+            students_dict[student_id]['age'] = age
+        if course:
+            students_dict[student_id]['course'] = course
+        print(f"Student with ID {student_id} updated.")
 
 if __name__ == "__main__":
     # ---- Растопша Ярослав: ----
@@ -60,3 +72,9 @@ if __name__ == "__main__":
     remove_student(2)  # Remove existing student
     remove_student(10)  # Try to remove non-existent student (no error or message)
 
+# ---- Головенко Марк ----
+    print("\n--- Updating Students (Головенко Марк) ---")
+    update_student(1, name="Ivan Ivanov", course="Computer Science")
+
+    print("\n--- Final Students Dictionary ---")
+    print(students_dict)
