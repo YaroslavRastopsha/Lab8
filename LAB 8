@@ -17,10 +17,33 @@ def add_student(student_id, name, age, course):
         print(f"Student with ID {student_id} already exists.")
     else:
         students_dict[student_id] = {"name": name, "age": age, "course": course}
+
+
         print(f"Student {name} added.")
+# -------------------- (Григоренко Максим) --------------------
+
+def sort_students(by="name"):
+    """Sorts students by name or age"""
+    if by == "name":
+        return dict(sorted(students_dict.items(), key=lambda item: item[1]["name"]))
+    elif by == "age":
+        return dict(sorted(students_dict.items(), key=lambda item: item[1]["age"]))
+    else:
+        print("Invalid sort key. Use 'name' or 'age'.")
+        return None
+
 
 if __name__ == "__main__":
     # ---- Растопша Ярослав: ----
     print("\n--- Adding Students (Растопша Ярослав) ---")
     add_student(3, "Pavlo", 21, "Physics")
     add_student(1, "Ivan", 20, "Math")  # Attempt to add existing student
+
+
+# ---- Григоренко Максим: Sort students ----
+    print("\n--- Sorting Students (Григоренко Максим) ---")
+    sorted_by_name = sort_students(by="name")
+    print("Sorted by name:", sorted_by_name)
+
+    sorted_by_age = sort_students(by="age")
+    print("Sorted by age:", sorted_by_age)
