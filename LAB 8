@@ -1,0 +1,26 @@
+
+students_dict = {
+    1: {"name": "Ivan", "age": 20, "course": "Math"},
+    2: {"name": "Olena", "age": 19, "course": "Biology"}
+}
+
+
+def check_student_exists(student_id):
+    """Checks if a student with the given ID exists in the dictionary"""
+    return student_id in students_dict
+
+# --------------------  (Растопша Ярослав) --------------------
+
+def add_student(student_id, name, age, course):
+    """Adds a new student to the dictionary if the ID does not already exist"""
+    if check_student_exists(student_id):
+        print(f"Student with ID {student_id} already exists.")
+    else:
+        students_dict[student_id] = {"name": name, "age": age, "course": course}
+        print(f"Student {name} added.")
+
+if __name__ == "__main__":
+    # ---- Растопша Ярослав: ----
+    print("\n--- Adding Students (Растопша Ярослав) ---")
+    add_student(3, "Pavlo", 21, "Physics")
+    add_student(1, "Ivan", 20, "Math")  # Attempt to add existing student
